@@ -67,10 +67,10 @@ impl TTYPort {
             timeout: Duration::from_millis(100)
         };
 
-        // get exclusive access to device
-        if let Err(err) = ioctl::tiocexcl(port.fd) {
-            return Err(super::error::from_io_error(err))
-        }
+        // // get exclusive access to device
+        // if let Err(err) = ioctl::tiocexcl(port.fd) {
+        //     return Err(super::error::from_io_error(err))
+        // }
 
         // clear O_NONBLOCK flag
         if unsafe { libc::fcntl(port.fd, F_SETFL, 0) } < 0 {
