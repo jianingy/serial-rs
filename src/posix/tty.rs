@@ -193,9 +193,9 @@ impl SerialDevice for TTYPort {
             return Err(super::error::from_io_error(err));
         }
 
-        if let Err(err) = tcflush(self.fd, TCIOFLUSH) {
-            return Err(super::error::from_io_error(err));
-        }
+        // if let Err(err) = tcflush(self.fd, TCIOFLUSH) {
+        //     return Err(super::error::from_io_error(err));
+        // }
 
         Ok(())
     }
